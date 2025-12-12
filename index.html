@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suliat Sulaiman | Elite English Communication & IELTS Coach</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #0f0805;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #1a0f08 0%, #0f0805 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(232, 91, 28, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .hero h1 strong {
+            display: block;
+            font-weight: 700;
+            background: linear-gradient(135deg, #E85B1C 0%, #FF8C5A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #b8b8b8;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-family: 'Helvetica', sans-serif;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, #E85B1C 0%, #C74817 100%);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(232, 91, 28, 0.5);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        section h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+            color: #E85B1C;
+        }
+
+        section h3 {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #FF8C5A;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            color: #b8b8b8;
+            margin-bottom: 1.5rem;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        .section-divider {
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, #E85B1C, transparent);
+            margin: 3rem 0;
+        }
+
+        /* About Section */
+        .about {
+            background: #12090a;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .highlight {
+            color: #E85B1C;
+            font-weight: 600;
+        }
+
+        /* Framework Section */
+        .framework {
+            background: linear-gradient(135deg, #1a0f08 0%, #0f0805 100%);
+        }
+
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .framework-card {
+            background: rgba(232, 91, 28, 0.05);
+            padding: 2.5rem;
+            border: 1px solid rgba(232, 91, 28, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .framework-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #E85B1C, transparent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .framework-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(232, 91, 28, 0.5);
+            background: rgba(232, 91, 28, 0.08);
+        }
+
+        .framework-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .framework-card h4 {
+            font-size: 1.3rem;
+            color: #E85B1C;
+            margin-bottom: 1rem;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        .framework-card p {
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Results Section */
+        .results {
+            background: #12090a;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-number {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #E85B1C 0%, #FF8C5A 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .result-text {
+            font-size: 1.1rem;
+            color: #b8b8b8;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        /* Clients Section */
+        .clients {
+            background: linear-gradient(135deg, #1a0f08 0%, #0f0805 100%);
+        }
+
+        .clients-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .client-card {
+            background: rgba(232, 91, 28, 0.05);
+            padding: 2rem;
+            border-left: 3px solid #E85B1C;
+        }
+
+        .client-card h4 {
+            color: #E85B1C;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: #12090a;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial {
+            background: rgba(232, 91, 28, 0.05);
+            padding: 3rem;
+            border: 1px solid rgba(232, 91, 28, 0.2);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            font-size: 5rem;
+            color: rgba(232, 91, 28, 0.2);
+            font-family: Georgia;
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #d4d4d4;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #E85B1C;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 0.3rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #E85B1C 0%, #C74817 100%);
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: #ffe8d9;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        .cta-section .cta-button {
+            background: #0f0805;
+            color: #E85B1C;
+        }
+
+        .cta-section .cta-button:hover {
+            background: #1a0f08;
+        }
+
+        /* Footer */
+        footer {
+            background: #0f0805;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(232, 91, 28, 0.2);
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.9rem;
+            font-family: 'Helvetica', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 5rem 0;
+            }
+
+            .framework-grid,
+            .testimonial-grid,
+            .clients-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content container">
+            <h1>
+                Transform Your English.<br>
+                <strong>Command Any Conversation.</strong>
+            </h1>
+            <p>
+                I don't teach English—I architect fluency. Elite coaching for non-native speakers who refuse to settle for "good enough." IELTS Band 7+. Career-defining communication. Global confidence.
+            </p>
+            <a href="#apply" class="cta-button">Apply for Elite Coaching</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <h2>The Standard Bearer</h2>
+            <div class="section-divider"></div>
+            <div class="about-content">
+                <p>
+                    For over <span class="highlight">seven years</span>, I have been the turning point for learners who thought fluency was out of reach. From K-12 classrooms to staffrooms, I have mastered the full spectrum of English education—and decoded what truly separates competence from mastery.
+                </p>
+                <p>
+                    My methodology doesn't follow trends. It dismantles the psychological barriers and technical gaps that keep non-native speakers trapped in mediocrity. Whether you're a student targeting IELTS Band 8 or an adult professional who needs to <span class="highlight">own the room in English</span>, My approach delivers measurable, irreversible transformation.
+                </p>
+                <p>
+                    I teach because language is power—and every learner deserves access to that power. At <span class="highlight">Letorea Learning Hub</span>, excellence isn't aspirational. It's the baseline.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework Section -->
+    <section class="framework">
+        <div class="container">
+            <h2>The Letorea Communication Framework</h2>
+            <div class="section-divider"></div>
+            <h3>Four Pillars. Zero Compromise.</h3>
+            <div class="framework-grid">
+                <div class="framework-card">
+                    <h4>01. Precision Mastery</h4>
+                    <p>Grammar, vocabulary, and syntax engineered to eliminate errors. Not textbook perfect—real-world flawless.</p>
+                </div>
+                <div class="framework-card">
+                    <h4>02. Confidence Architecture</h4>
+                    <p>Mindset reprogramming for adults who carry years of linguistic anxiety. Speak without hesitation. Think in English.</p>
+                </div>
+                <div class="framework-card">
+                    <h4>03. Strategic Fluency</h4>
+                    <p>Context-driven communication tailored to your goals—IELTS success, professional advancement, or life skills mastery.</p>
+                </div>
+                <div class="framework-card">
+                    <h4>04. Accelerated Results</h4>
+                    <p>Intensive, high-accountability coaching designed to collapse timelines. Months of progress in weeks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results">
+        <div class="container">
+            <h2>Outcomes That Speak</h2>
+            <div class="section-divider"></div>
+            <div class="results-grid">
+                <div class="result-item">
+                    <span class="result-number">7+</span>
+                    <p class="result-text">Average IELTS Band Score Achieved</p>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">92%</span>
+                    <p class="result-text">Learners Report Career or Academic Breakthroughs</p>
+                </div>
+                <div class="result-item">
+                    <span class="result-number">100%</span>
+                    <p class="result-text">Clients Gain Unshakeable Confidence</p>
+                </div>
+            </div>
+            <div class="about-content" style="margin-top: 4rem;">
+                <p style="text-align: center;">
+                    My students don't just pass tests. They transform how they show up in the world—at work, in interviews, in global conversations. They become the speakers they once admired.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section class="clients">
+        <div class="container">
+            <h2>Who She Transforms</h2>
+            <div class="section-divider"></div>
+            <div class="clients-list">
+                <div class="client-card">
+                    <h4>IELTS Aspirants</h4>
+                    <p>Students targeting Band 7+ for university admissions, immigration, or professional certification. Precision training, strategic test mastery.</p>
+                </div>
+                <div class="client-card">
+                    <h4>Adult Professionals</h4>
+                    <p>Non-native executives, entrepreneurs, and professionals who need flawless English for meetings, presentations, and global negotiations.</p>
+                </div>
+                <div class="client-card">
+                    <h4>Parents & Young Learners</h4>
+                    <p>Families who understand that English fluency is a life skill—not a subject. Early mastery, lifelong advantage.</p>
+                </div>
+                <div class="client-card">
+                    <h4>High-Achievers</h4>
+                    <p>Ambitious learners who refuse average results. If you're willing to invest in elite coaching, I deliver elite outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>Proof in Their Words</h2>
+            <div class="section-divider"></div>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        After failing IELTS reading twice, I was devastated. Suliat rebuilt my approach from the ground up. Third attempt: I hit my target band score. She doesn't just teach strategies—she restores belief.
+                    </p>
+                    <p class="testimonial-author">Baliqis O.</p>
+                    <p class="testimonial-role">IELTS Success After Two Previous Failures</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        I reached out from Finland needing urgent help with IELTS writing. One session with Suliat, and I scored 6.5—exactly what I needed. Her precision and clarity are unmatched.
+                    </p>
+                    <p class="testimonial-author">Peace A.</p>
+                    <p class="testimonial-role">Student in Finland, Achieved 6.5 in Writing</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">
+                        My daughter's confidence has improved considerably since working with Suliat. But what surprised me most was the growth in her emotional intelligence and how she connects with others. This is education that transforms.
+                    </p>
+                    <p class="testimonial-author">Parent, Canada</p>
+                    <p class="testimonial-role">Mother of K-12 Learner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="apply">
+        <div class="container">
+            <h2>This Is Your Invitation</h2>
+            <p>
+                Elite coaching. Limited availability. I only work with learners who are serious about transformation. If you're ready to invest in mastery, apply below for a discovery session.
+            </p>
+            <a href="https://calendly.com/skillassessment/30min?month=2025-12" class="cta-button">Schedule Your Discovery Session</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Letorea Learning Hub. Founded by Suliat Sulaiman.</p>
+        </div>
+    </footer>
+</body>
+</html>
